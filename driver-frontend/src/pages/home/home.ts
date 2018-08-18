@@ -1,3 +1,4 @@
+import { RequestsPage } from './../requests/requests';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -10,5 +11,9 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
+  public navigateToOtherPage(): void {
+    this.navCtrl.push(RequestsPage);
+ }
+  
 
 }

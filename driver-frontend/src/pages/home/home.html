@@ -7,9 +7,33 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>This is the fronend for the BVG driver</h3>
+<ion-content pXadding class="view--home">
+  <ion-grid>
+      <ion-row>
+          <ion-col col-12 class="text--center">
+            <button ion-button secondary>Login</button>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12 class="text--center">
+            
+            <button ion-button secondary (click)="navigateToOtherPage()">Anfragen</button>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <div class="home__title">
+      <ion-grid>
+          <ion-row>
+            <ion-col col-9  class="text--right">
+              <h3 class="text--bvg"><span>Dein Arbeitsmittel</span></h3>
+            </ion-col>
+            <ion-col col-12  class="text--right">
+                <p class="text--bvg">Weil Du Deinen Arbeitsplatz liebst.</p>
+              </ion-col>
+          </ion-row>
+          
+        </ion-grid>
+    
+  </div>
 
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

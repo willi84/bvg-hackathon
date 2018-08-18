@@ -1,0 +1,32 @@
+.text--bvg{
+    background-color: map-get($colors, primary); 
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+    display: inline-block;
+}
+.home__title{
+    position: absolute;
+    bottom: 20px;
+    // text-align: right;
+}
+.text--left{
+    text-align: left;
+}
+.text--center{
+    text-align: center;
+}
+.text--right{
+    text-align: right;
+}
+page-home{ 
+    .toolbar-background {
+        background-color: #373632;
+    }
+    .toolbar-title-md{
+    color: white
+    }
+    .bar-buttons{
+        color: white;
+    }
+}
