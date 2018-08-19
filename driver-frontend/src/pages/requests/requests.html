@@ -17,7 +17,7 @@
 
 <ion-content padding class="card-background-page">
   
-aktuelle Anfragen: {{activeUserUuid.length}}  -  {{getData}}
+aktuelle Anfragen: {{activeUserUuid.length}}
 <button ion-button secondary (click)="startApp()">
   <span *ngIf="getData">stoppen</span><span *ngIf="!getData">starten</span></button>
     
@@ -58,7 +58,7 @@ aktuelle Anfragen: {{activeUserUuid.length}}  -  {{getData}}
               <div *ngFor="let user of station.users ">
                   <ion-col col-3 *ngIf="user.distance <= 50">
                       <div class="avatar__container status--ok" [ngClass]="{'case--ready': user.distance < 0}">
-                        <img class="avatar-pic" src="{{user.picture.thumbnail}}">
+                        <img class="avatar-pic" src="{{user.picture.thumbnail}}" (click)="confirm(user)">
                         <ion-badge  *ngIf="user.distance >= 0" class="badge__status" item-end>{{user.distance}}</ion-badge>
                         <ion-icon class="color--green " name="checkmark-circle" *ngIf="user.distance < 0"></ion-icon>
                       </div>
@@ -66,13 +66,13 @@ aktuelle Anfragen: {{activeUserUuid.length}}  -  {{getData}}
 
                   <ion-col col-3 *ngIf="user.distance <= 100 && user.distance > 50">
                       <div class="avatar__container status--medium">
-                        <img class="avatar-pic" src="{{user.picture.thumbnail}}">
+                        <img class="avatar-pic" src="{{user.picture.thumbnail}}" (click)="confirm(user)">
                         <ion-badge class="badge__status" item-end>{{user.distance}}</ion-badge>
                       </div>
                   </ion-col>
                   <ion-col col-3 *ngIf="user.distance > 100">
                         <div class="avatar__container status--no">
-                          <img class="avatar-pic" src="{{user.picture.thumbnail}}">
+                          <img class="avatar-pic" src="{{user.picture.thumbnail}}" (click)="confirm(user)">
                           <ion-badge class="badge__status" item-end>{{user.distance}}</ion-badge>
                         </div>
                     </ion-col>

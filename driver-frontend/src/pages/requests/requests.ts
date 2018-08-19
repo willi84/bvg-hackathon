@@ -20,12 +20,13 @@ export class RequestsPage {
   interval: any;
   users = [];
   hasUnicorn: boolean = false;
-  loadUsers: boolean = true;
+  loadUsers: boolean = false;
   activeUserUuid = [];
   registeredUsers = [];
   public getData: boolean = false; 
   apiUrl = '/api'; 
   apiUsers = '/users';
+  confirmUrl = '/confirm';
   stationsUrl = '/assets/245_sample.json';
   items = [
     {
@@ -79,6 +80,7 @@ export class RequestsPage {
     
   }
   
+  
   ngOnInit() {
     this.getStations();
 
@@ -107,6 +109,14 @@ export class RequestsPage {
     this.getData = !this.getData;
     
   }
+  public confirm(user){
+    user.distance = -1;
+    // let httpOptions = {};
+    return this.http.post(this.confirmUrl, { tourId: 3});
+    // .pipe(
+    //   catchError(this.handleError('addHero', hero))
+    // );
+  }
 
 refreshData(){
   if(!this.loadUsers){
@@ -121,7 +131,6 @@ refreshData(){
       let newUuid = pictureId[1];
       if(this.activeUserUuid.indexOf(newUuid) === -1){
         this.activeUserUuid.push(newUuid);
-        console.log(newUsers[i]);
         let randomStation = Math.floor(Math.random() * this.stations.length);
         newUsers[i]['distance'] = Math.floor(Math.random() * 150);
         newUsers[i]['speed'] = Math.floor(Math.random() * 2 + 1);
@@ -146,7 +155,7 @@ if(!this.hasUnicorn){
     let pickups = data['pickups'];
     if(pickups.length > 0){
       this.hasUnicorn = true;
-      console.log(pickups[0])
+      console.log(pickups)
       // user.id image name
       // this.users.push(pickups[0])
       //picture.thumbnail

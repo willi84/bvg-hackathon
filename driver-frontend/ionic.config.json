@@ -11,6 +11,10 @@
     {
       "path": "/users",
       "proxyUrl": "https://randomuser.me/api/?results=150"
+    },
+    {
+      "path": "/confirm",
+      "proxyUrl": "https://bvg-hackathon.herokuapp.com/pickup/confirmPickup"
     }
   ]
 }
