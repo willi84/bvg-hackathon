@@ -109,3 +109,17 @@ page-home{
     padding: 0;
     color: white;
 }
+.color--green{
+    color: green;
+}
+.case--ready{
+    img{
+        opacity: 0.3;
+    }
+    ion-icon.color--green{
+        position: relative;
+        left: -20px;
+        top: -3px;
+
+    }
+}

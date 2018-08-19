@@ -20,7 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RequestsPage,
     TimelineComponent,
     TimelineItemComponent, 
-    TimelineTimeComponent
+     TimelineTimeComponent
   ],
   imports: [
     BrowserModule,

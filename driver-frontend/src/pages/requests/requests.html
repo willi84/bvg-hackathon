@@ -17,7 +17,9 @@
 
 <ion-content padding class="card-background-page">
   
-aktuelle Anfragen: {{activeUserUuid.length}}
+aktuelle Anfragen: {{activeUserUuid.length}}  -  {{getData}}
+<button ion-button secondary (click)="startApp()">
+  <span *ngIf="getData">stoppen</span><span *ngIf="!getData">starten</span></button>
     
   <timeline endIcon="call"  >
       <timeline-item *ngFor="let station of stations" col-12 >
@@ -52,10 +54,33 @@ aktuelle Anfragen: {{activeUserUuid.length}}
                 <img class="avatar-pic" src="./assets/imgs/robert.jpg">
                 <ion-badge class="badge__status" item-end>100</ion-badge>
               </div> -->
-              <div *ngFor="let user of station.users" class="avatar__container" [ngClass]="{'status--no': user.distance > 100, 'status--medium': user.distance > 50, 'status--ok': user.distance <= 50}">
-                  <img class="avatar-pic" src="{{user.picture.thumbnail}}">
-                  <ion-badge class="badge__status" item-end>{{user.distance}}</ion-badge>
-              </div>
+              
+              <div *ngFor="let user of station.users ">
+                  <ion-col col-3 *ngIf="user.distance <= 50">
+                      <div class="avatar__container status--ok" [ngClass]="{'case--ready': user.distance < 0}">
+                        <img class="avatar-pic" src="{{user.picture.thumbnail}}">
+                        <ion-badge  *ngIf="user.distance >= 0" class="badge__status" item-end>{{user.distance}}</ion-badge>
+                        <ion-icon class="color--green " name="checkmark-circle" *ngIf="user.distance < 0"></ion-icon>
+                      </div>
+                  </ion-col>
+
+                  <ion-col col-3 *ngIf="user.distance <= 100 && user.distance > 50">
+                      <div class="avatar__container status--medium">
+                        <img class="avatar-pic" src="{{user.picture.thumbnail}}">
+                        <ion-badge class="badge__status" item-end>{{user.distance}}</ion-badge>
+                      </div>
+                  </ion-col>
+                  <ion-col col-3 *ngIf="user.distance > 100">
+                        <div class="avatar__container status--no">
+                          <img class="avatar-pic" src="{{user.picture.thumbnail}}">
+                          <ion-badge class="badge__status" item-end>{{user.distance}}</ion-badge>
+                        </div>
+                    </ion-col>
+
+                   
+                
+                
+                </div>
         </ion-card>
       </timeline-item>
   
