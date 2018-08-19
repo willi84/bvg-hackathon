@@ -1,6 +1,8 @@
+import { TimelineComponent, TimelineItemComponent, TimelineTimeComponent } from './../components/timeline/timeline';
 import { RequestsPage } from './../pages/requests/requests';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -15,10 +17,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    RequestsPage
+    RequestsPage,
+    TimelineComponent,
+    TimelineItemComponent, 
+    TimelineTimeComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -26,7 +32,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    RequestsPage
+    RequestsPage, 
+    TimelineComponent
   ],
   providers: [
     StatusBar,

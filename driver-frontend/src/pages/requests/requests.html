@@ -10,12 +10,108 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>request</ion-title>
+      <ion-title>Tour: Bus 245</ion-title>
     </ion-navbar>
   </ion-header>
 
 
-<ion-content padding>
-  dasf
+<ion-content padding class="card-background-page">
+  
+aktuelle Anfragen: {{activeUserUuid.length}}
+    
+  <timeline endIcon="call"  >
+      <timeline-item *ngFor="let station of stations" col-12 >
+          <ion-icon class="time__node" name="bus" ></ion-icon>
+        <!-- <ion-icon name="bus"></ion-icon> -->
+        <timeline-time  [time]="station"></timeline-time>
+
+        <ion-card class="text--left">
+          <ion-card-header>
+            {{station.name}}
+          </ion-card-header>
+          <ion-card-content>
+              <ion-icon name="bus" *ngIf="station.products.bus"></ion-icon>
+              <span class="icon__bus" *ngIf="station.products.tram">Bus</span>
+              <span class="icon__tram" *ngIf="station.products.tram">Tram</span> 
+              <span class="icon__metro" *ngIf="station.products.subway">U</span> 
+              <span  class="icon__sbahn"  *ngIf="station.products.suburban">S</span> 
+              <ion-icon name="train" *ngIf="station.products.regional"></ion-icon>
+          </ion-card-content>
+          <!-- <div class="avatar__container status--ok">
+
+            <img class="avatar-pic" src="./assets/imgs/robert.jpg">
+            <ion-badge class="badge__status" item-end>1</ion-badge>
+          </div>
+          <div class="avatar__container status--medium">
+
+              <img class="avatar-pic" src="./assets/imgs/robert.jpg">
+              <ion-badge class="badge__status" item-end>10</ion-badge>
+            </div>
+            <div class="avatar__container status--no">
+
+                <img class="avatar-pic" src="./assets/imgs/robert.jpg">
+                <ion-badge class="badge__status" item-end>100</ion-badge>
+              </div> -->
+              <div *ngFor="let user of station.users" class="avatar__container" [ngClass]="{'status--no': user.distance > 100, 'status--medium': user.distance > 50, 'status--ok': user.distance <= 50}">
+                  <img class="avatar-pic" src="{{user.picture.thumbnail}}">
+                  <ion-badge class="badge__status" item-end>{{user.distance}}</ion-badge>
+              </div>
+        </ion-card>
+      </timeline-item>
+  
+    </timeline>
+
+        <!-- <timeline endIcon="call">
+          <timeline-item *ngFor="let item of items">
+            <timeline-time [time]="item.time"></timeline-time>
+            <ion-icon [name]="item.icon"></ion-icon>
+            <ion-card>
+              <ion-card-header>
+                {{item.title}}
+              </ion-card-header>
+              <ion-card-content>
+                {{item.content}}
+              </ion-card-content>
+            </ion-card>
+          </timeline-item>
+      
+        </timeline> -->
+    
+  <ion-grid>
+      <ion-row ion-item *ngFor="let item of pickups">
+          <ion-card>
+              <img src="./assets/imgs/{{item.img}}"/>
+              <ion-card-content>
+                <ion-card-title>
+                    {{ item.stop}}
+                  </ion-card-title>
+                <p>
+                    {{ item.destination | json}}
+                </p>
+              </ion-card-content>
+            </ion-card>
+
+                <ion-card>
+                  <img src="./assets/imgs/{{item.img}}"/>
+                  <div class="card-title "><h2 class=" text--bvg text--bvg--inline">{{item.name}}</h2></div>
+                  <div class="card-subtitle">{{ item.destination | json}}</div>
+                </ion-card>
+              
+                
+              
+                
+          <!-- <ion-col col-6 class="text--center">
+              <button>
+                  {{ item.stop}}
+                </button>
+          </ion-col>
+          <ion-col col-6 class="text--center">
+              <button>
+                  {{ item.destination | json}}
+                </button>
+          </ion-col> -->
+      </ion-row>
+      </ion-grid>
+  
 
 </ion-content>

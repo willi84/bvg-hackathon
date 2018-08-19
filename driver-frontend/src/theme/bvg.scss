@@ -3,7 +3,11 @@
     color: black;
     padding: 5px;
     font-weight: bold;
-    display: inline-block;
+    // display: inline-block;
+}
+.text--bvg--inline{
+    
+     display: inline-block;
 }
 .home__title{
     position: absolute;
@@ -29,4 +33,79 @@ page-home{
     .bar-buttons{
         color: white;
     }
+}
+.icon__tram{
+    background-color:red;
+    color: white;
+    font-size: 6px;
+    padding: 4px 1px;
+    position: relative;
+    top: -3px;
+}
+.icon__metro{
+    background-color:blue;
+    color: white;
+    font-size: 8px;
+    padding: 4px 4px;
+    position: relative;
+    top: -3px;
+    font-weight: bold;
+}
+.icon__sbahn{
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+    padding: 0 6px;
+}
+.icon__bus{
+    background-color: purple;
+    color: white;
+    border-radius: 50%;
+    padding: 0 6px;
+}
+.avatar__container{
+    display: inline;
+    &.status--ok .avatar-pic{
+        border: 4px solid green;
+        
+    }
+    &.status--medium .avatar-pic{
+        border: 4px solid orange
+    }
+    &.status--no .avatar-pic{
+        border: 4px solid red
+    }
+    &.status--ok .badge-md.badge__status{
+       background-color:  green;
+        
+    }
+    &.status--medium .badge-md.badge__status{
+        background-color: orange
+    }
+    &.status--no .badge-md.badge__status{
+        background-color: red
+    }
+}
+.avatar-pic{
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius:20%;
+    border-radius: 20%;
+    display: inline;
+    
+    &:after{
+        content: ' ';
+        background: #ff0;
+        width: 5px;
+        height: 5px;
+        position: relative;
+    }
+}
+.badge-md.badge__status{
+    left: -20px;
+    position: relative;
+    position: relative;
+    font-size: 1.3rem;
+    padding: 0;
+    color: white;
 }

@@ -13,7 +13,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = RequestsPage; //  HomePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -24,7 +24,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Requests', component: RequestsPage }
+      { title: 'Route', component: RequestsPage }
 
     ];
 

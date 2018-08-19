@@ -2,5 +2,15 @@
   "name": "frontend",
   "integrations": {},
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://bvg-hackathon.herokuapp.com/pickup/getPickupInfo"
+    },
+    {
+      "path": "/users",
+      "proxyUrl": "https://randomuser.me/api/?results=150"
+    }
+  ]
 }
