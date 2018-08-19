@@ -110,9 +110,14 @@ export class RequestsPage {
     
   }
   public confirm(user){
-    user.distance = -1;
+    if(user.distance >= 0){
+      user.distance = -1;
+
+      return this.http.post(this.confirmUrl, { tourId: 3});
+    } else {
+      user.distance = 300;
+    }
     // let httpOptions = {};
-    return this.http.post(this.confirmUrl, { tourId: 3});
     // .pipe(
     //   catchError(this.handleError('addHero', hero))
     // );
